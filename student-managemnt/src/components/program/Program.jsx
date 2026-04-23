@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { 
-  GraduationCap, 
-  BookOpen, 
-  Clock, 
+import {
+  GraduationCap,
+  BookOpen,
+  Clock,
   DollarSign,
   Award,
   Users,
@@ -77,8 +77,8 @@ const Program = () => {
   }, []);
 
   // Filter programs based on category
-  const filteredPrograms = selectedCategory === 'all' 
-    ? courses 
+  const filteredPrograms = selectedCategory === 'all'
+    ? courses
     : courses.filter(program => program.category === selectedCategory);
 
   // Get color classes based on program color
@@ -125,7 +125,7 @@ const Program = () => {
           </div>
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Oops! Something went wrong</h2>
           <p className="text-gray-600 mb-6">{error}</p>
-          <button 
+          <button
             onClick={fetchCourses}
             className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition"
           >
@@ -142,15 +142,15 @@ const Program = () => {
       <div className="relative bg-gradient-to-r from-green-600 to-green-800 pt-20 overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
-          <img 
-            src={heroBackground} 
-            alt="University Campus" 
+          <img
+            src={heroBackground}
+            alt="University Campus"
             className="w-full h-full object-cover opacity-30"
           />
         </div>
         {/* Green Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-green-600/20 to-green-800/20"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-60 relative z-10">
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5">
@@ -160,7 +160,7 @@ const Program = () => {
               Discover our diverse range of programs designed to prepare you for a successful future
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <button 
+              <button
                 onClick={() => navigate('/register')}
                 className="bg-white text-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition shadow-lg"
               >
@@ -218,11 +218,10 @@ const Program = () => {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`px-5 py-2 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
-                    isActive 
-                      ? 'bg-green-600 text-white shadow-lg scale-105' 
+                  className={`px-5 py-2 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${isActive
+                      ? 'bg-green-600 text-white shadow-lg scale-105'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
+                    }`}
                 >
                   <Icon size={18} />
                   {category.name}
@@ -246,13 +245,13 @@ const Program = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPrograms.map((program) => {
                 const colors = getColorClasses(program.color);
-                const isHovered = hoveredProgram === program.id;
-                
+                const isHovered = hoveredProgram === program._id;
+
                 return (
                   <div
                     key={program._id}
                     className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-2"
-                    onMouseEnter={() => setHoveredProgram(program.id)}
+                    onMouseEnter={() => setHoveredProgram(program._id)}
                     onMouseLeave={() => setHoveredProgram(null)}
                   >
                     {/* Program Header */}
@@ -273,7 +272,7 @@ const Program = () => {
                     {/* Program Details */}
                     <div className="p-6">
                       <p className="text-gray-600 text-sm mb-4 line-clamp-2">{program.description}</p>
-                      
+
                       <div className="flex items-center gap-4 text-sm text-gray-500 mb-4 pb-4 border-b border-gray-100">
                         <div className="flex items-center gap-1">
                           <Clock size={16} />
@@ -324,13 +323,13 @@ const Program = () => {
 
                       {/* Action Buttons */}
                       <div className="mt-4 flex gap-2">
-                        <button 
+                        <button
                           onClick={() => handleApplyNow(program)}
                           className="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition text-sm"
                         >
                           Apply Now
                         </button>
-                        <button 
+                        <button
                           onClick={() => handleViewDetails(program)}
                           className="px-4 py-2 border border-green-600 text-green-600 rounded-lg font-semibold hover:bg-green-50 transition text-sm"
                         >
@@ -399,7 +398,7 @@ const Program = () => {
             Join our diverse community of learners and take the first step toward your dream career
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button 
+            <button
               onClick={() => navigate('/register')}
               className="bg-white text-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition shadow-lg"
             >

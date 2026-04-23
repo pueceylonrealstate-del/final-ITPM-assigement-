@@ -28,19 +28,19 @@ import {
 } from 'lucide-react';
 
 // Import images from assets/studentlife folder
-import music1 from '../assets/studentlife/pexels-ken123films-2261952.jpg';
+import music1 from '../assets/studentlife/pexels-maumascaro-801863.jpg';
 import music2 from '../assets/studentlife/pexels-a-darmel-7715764.jpg';
 import music3 from '../assets/studentlife/pexels-wendywei-1190297.jpg';
 import music4 from '../assets/studentlife/pexels-wendywei-1540406.jpg';
 
-import sport1 from '../assets/studentlife/pexels-case-originals-3602833.jpg';
+import sport1 from '../assets/studentlife/pexels-cottonbro-5053732.jpg';
 import sport2 from '../assets/studentlife/pexels-pixabay-247848.jpg';
 
 import dance1 from '../assets/studentlife/pexels-agustina-croce-302580711-13411721.jpg';
 import dance2 from '../assets/studentlife/pexels-fabricio-lira-942672-2896162.jpg';
-import dance3 from '../assets/studentlife/pexels-prime-cinematics-1005175-2057274.jpg';
+import dance3 from '../assets/studentlife/pexels-wendywei-1190297.jpg';
 
-import outdoor1 from '../assets/studentlife/pexels-emma-bauso-1183828-3585812.jpg';
+import outdoor1 from '../assets/studentlife/pexels-roman-odintsov-6898853.jpg';
 import outdoor2 from '../assets/studentlife/pexels-isabella-mendes-107313-1304475.jpg';
 import outdoor3 from '../assets/studentlife/pexels-ketut-subiyanto-4473871.jpg';
 import outdoor4 from '../assets/studentlife/pexels-vladvictoria-2363674.jpg';

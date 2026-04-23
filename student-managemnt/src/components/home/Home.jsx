@@ -25,9 +25,9 @@ import {
 
 // Import local images
 import campusImage from '../assets/pexels-kampus-5940709.jpg';
-import studentImage from '../assets/pexels-olly-3776190.jpg';
-import libraryImage from '../assets/pexels-mikhail-nilov-7777128.jpg';
-import eventImage from '../assets/pexels-olly-3776190.jpg';
+import studentImage from '../assets/studentlife/pexels-olly-3776190.jpg';
+import libraryImage from '../assets/pexels-mart-production-7251091.jpg';
+import eventImage from '../assets/studentlife/pexels-olly-3776190.jpg';
 
 const Home = () => {
   const navigate = useNavigate();

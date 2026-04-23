@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ArrowLeft, CheckCircle, Upload, FileText } from 'lucide-react';
-import heroBackground from '../assets/pexels-mikhail-nilov-7777128.jpg';
+import heroBackground from '../assets/pexels-kampus-5940709.jpg';
 
 const Admission = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Admission = () => {
     olResultSheet: null,
     alResultSheet: null
   });
-  
+
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -48,7 +48,7 @@ const Admission = () => {
     if (!formData.program) tempErrors.program = 'Please select a program';
     if (!formData.olResultSheet) tempErrors.olResultSheet = 'O/L Result Sheet is required';
     if (!formData.alResultSheet) tempErrors.alResultSheet = 'A/L Result Sheet is required';
-    
+
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
@@ -57,7 +57,7 @@ const Admission = () => {
     e.preventDefault();
     if (validateForm()) {
       setIsSubmitting(true);
-      
+
       const submitData = new FormData();
       submitData.append('fullName', formData.fullName);
       submitData.append('email', formData.email);
@@ -116,7 +116,7 @@ const Admission = () => {
           <img src={heroBackground} alt="University Campus" className="w-full h-full object-cover opacity-30" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-green-600/70 to-green-800/70"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <button onClick={() => navigate('/')} className="text-white hover:text-green-200 transition flex items-center gap-2 mb-6">
             <ArrowLeft size={20} /> Back to Home
@@ -141,7 +141,7 @@ const Admission = () => {
             <FileText className="text-green-600" />
             Application Form
           </h2>
-          
+
           {errors.submit && (
             <div className="mb-6 p-4 bg-red-50 text-red-700 rounded-lg border border-red-200">
               {errors.submit}
@@ -153,12 +153,12 @@ const Admission = () => {
               {/* Full Name */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                <input 
-                  type="text" 
-                  name="fullName" 
-                  value={formData.fullName} 
-                  onChange={handleChange} 
-                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition ${errors.fullName ? 'border-red-500' : 'border-gray-300'}`} 
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition ${errors.fullName ? 'border-red-500' : 'border-gray-300'}`}
                   placeholder="Enter your full name"
                 />
                 {errors.fullName && <p className="mt-1 text-sm text-red-500">{errors.fullName}</p>}
@@ -167,12 +167,12 @@ const Admission = () => {
               {/* Email */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  value={formData.email} 
-                  onChange={handleChange} 
-                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition ${errors.email ? 'border-red-500' : 'border-gray-300'}`} 
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
                   placeholder="your.email@example.com"
                 />
                 {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
@@ -182,10 +182,10 @@ const Admission = () => {
             {/* Program Selection */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Program of Interest *</label>
-              <select 
-                name="program" 
-                value={formData.program} 
-                onChange={handleChange} 
+              <select
+                name="program"
+                value={formData.program}
+                onChange={handleChange}
                 className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition ${errors.program ? 'border-red-500' : 'border-gray-300'}`}
               >
                 <option value="">Select a program</option>
@@ -196,7 +196,7 @@ const Admission = () => {
 
             <div className="border-t border-gray-100 pt-6 mt-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">Academic Qualifications</h3>
-              
+
               <div className="grid md:grid-cols-2 gap-6">
                 {/* O/L Upload */}
                 <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 border-dashed">
@@ -205,9 +205,9 @@ const Admission = () => {
                     <div className="shrink-0">
                       <Upload className="text-green-600" size={24} />
                     </div>
-                    <input 
-                      type="file" 
-                      name="olResultSheet" 
+                    <input
+                      type="file"
+                      name="olResultSheet"
                       onChange={handleChange}
                       accept=".pdf,.jpg,.jpeg,.png"
                       className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
@@ -223,9 +223,9 @@ const Admission = () => {
                     <div className="shrink-0">
                       <Upload className="text-green-600" size={24} />
                     </div>
-                    <input 
-                      type="file" 
-                      name="alResultSheet" 
+                    <input
+                      type="file"
+                      name="alResultSheet"
                       onChange={handleChange}
                       accept=".pdf,.jpg,.jpeg,.png"
                       className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
@@ -237,9 +237,9 @@ const Admission = () => {
             </div>
 
             <div className="pt-6">
-              <button 
-                type="submit" 
-                disabled={isSubmitting} 
+              <button
+                type="submit"
+                disabled={isSubmitting}
                 className="w-full bg-green-600 text-white py-3 rounded-xl font-bold text-lg hover:bg-green-700 transition shadow-lg disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isSubmitting ? 'Uploading & Submitting...' : 'Submit Qualifications'}

@@ -139,14 +139,7 @@ const Contact = () => {
         const response = await axios.post('http://localhost:5000/api/support/create', formData);
         if (response.data.success) {
           setSubmitSuccess(true);
-          // Assuming backend returned the ticket object containing both _id and ticketNumber
-          // Wait, backend createTicket returns ticket: { ticketNumber, name, email ... } but missing _id!
-          // Actually, I need to fetch the ticket or ensure backend returns _id. But since I can't guarantee backend returns _id reliably right now without changing Controller, let's look at controller.
-          // Wait, controller `createTicket` returns: ticket: { ticketNumber, name, ... }. It DOES NOT return _id.
-          // Let's modify handleFeedbackSubmit to use the email address instead, OR let me just change the controller quickly!
           setTicketNumber(response.data.ticket.ticketNumber);
-          // Wait, I will just change the Controller to also return _id on create! Wait, I am already modifying Contact.jsx here.
-          // Assuming I'll change controller to return `_id: ticket._id` too.
           setTicketId(response.data.ticket._id);
 
           setFormData({
