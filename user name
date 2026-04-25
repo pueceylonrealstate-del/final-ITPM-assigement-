@@ -1,0 +1,59 @@
+import React, { useState } from "react";
+
+function App() {
+  const [users, setUsers] = useState([
+    { id: 1, name: "John" },
+    { id: 2, name: "Sara" }
+  ]);
+
+  const [newUser, setNewUser] = useState("");
+
+  // Add user
+  const addUser = () => {
+    if (newUser.trim() === "") return;
+
+    const user = {
+      id: users.length + 1,
+      name: newUser
+    };
+
+    setUsers([...users, user]);
+    setNewUser("");
+  };
+
+  // Delete user
+  const deleteUser = (id) => {
+    const updatedUsers = users.filter((user) => user.id !== id);
+    setUsers(updatedUsers);
+  };
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <h2>User Management</h2>
+
+      {/* Input */}
+      <input
+        type="text"
+        placeholder="Enter user name"
+        value={newUser}
+        onChange={(e) => setNewUser(e.target.value)}
+      />
+
+      <button onClick={addUser}>Add User</button>
+
+      {/* User List */}
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            {user.name}
+            <button onClick={() => deleteUser(user.id)}>
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
