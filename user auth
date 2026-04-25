@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Create directory structure
+mkdir -p smart-campus-booking-module/{backend/src/main/{java/com/smartcampus/{controller,service,repository,model,dto,exception,config},resources},frontend/src/{components/Bookings,services,context,utils},database,postman}
+
+cd smart-campus-booking-module
+
+# Create backend main files
+touch backend/src/main/java/com/smartcampus/SmartCampusApplication.java
+touch backend/src/main/resources/application.properties
+
+# Create frontend files
+touch frontend/package.json
+touch frontend/src/App.jsx
+touch frontend/src/index.js
+touch frontend/src/components/Bookings/{BookingForm,BookingList,AdminBookingList}.jsx
+touch frontend/src/services/{bookingService,resourceService}.js
+touch frontend/src/context/AuthContext.jsx
+touch frontend/src/utils/constants.js
+
+# Create other files
+touch database/schema.sql
+touch postman/Booking_API_Collection.json
+touch README.md
+
+echo "Folder structure created successfully!"
+echo ""
+echo "Next steps:"
+echo "1. cd smart-campus-booking-module/backend"
+echo "2. Add the Java code to respective files"
+echo "3. cd ../frontend"
+echo "4. Run: npm install"
+echo "5. Add React components to respective files"
