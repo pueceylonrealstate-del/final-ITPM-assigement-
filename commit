@@ -1,0 +1,47 @@
+import React, { useState } from "react";
+import UserForm from "./components/UserForm";
+import UserList from "./components/UserList";
+
+function App() {
+  const [users, setUsers] = useState([]);
+  const [editUser, setEditUser] = useState(null);
+
+  // Add or Update user
+  const saveUser = (user) => {
+    if (user.id) {
+      // Update
+      setUsers(users.map((u) => (u.id === user.id ? user : u)));
+    } else {
+      // Add
+      user.id = Date.now();
+      setUsers([...users, user]);
+    }
+    setEditUser(null);
+  };
+
+  // Delete
+  const deleteUser = (id) => {
+    setUsers(users.filter((u) => u.id !== id));
+  };
+
+  // Edit
+  const editUserHandler = (user) => {
+    setEditUser(user);
+  };
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <h1>User Management System</h1>
+
+      <UserForm onSave={saveUser} editUser={editUser} />
+
+      <UserList
+        users={users}
+        onDelete={deleteUser}
+        onEdit={editUserHandler}
+      />
+    </div>
+  );
+}
+
+export default App;
